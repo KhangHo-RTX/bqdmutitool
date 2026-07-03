@@ -574,6 +574,39 @@ h1, h2, h3, h4, h5, h6,
   text-transform: uppercase;
   white-space: nowrap;
   position: relative;
+   /* ============================================================
+   FIX LỖI MÀU SIDEBAR (SHADCN/UI OVERRIDE)
+   ============================================================ */
+@layer base {
+  :root {
+    /* Đảm bảo biến màu cho sidebar luôn tối */
+    --sidebar-background: 231 20% 6% !important; /* #0a0b0f (khớp với --bg-base) */
+    --sidebar-foreground: 0 0% 95% !important;
+    --sidebar-border: 231 15% 10% !important;
+    --sidebar-accent: 263 70% 60% !important; /* Màu Amethyst cho hover/active */
+    --sidebar-accent-foreground: 0 0% 100% !important;
+    --sidebar-ring: 263 70% 60% !important;
+  }
+}
+
+/* Đảm bảo các thành phần trong Sidebar dùng đúng biến này */
+[data-slot="sidebar"] {
+  background-color: hsl(var(--sidebar-background)) !important;
+  border-right: 1px solid hsl(var(--sidebar-border)) !important;
+}
+
+[data-slot="sidebar-menu-button"] {
+  color: var(--text-secondary) !important;
+}
+
+[data-slot="sidebar-menu-button"]:hover {
+  background-color: rgba(255, 255, 255, 0.05) !important;
+  color: var(--text-primary) !important;
+}
+
+[data-slot="sidebar-menu-button"][data-active="true"] {
+  background-color: rgba(139, 92, 246, 0.08) !important;
+  color: var(--amethyst-400) !important;
 }
 
 .badge::before {
