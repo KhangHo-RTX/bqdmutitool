@@ -1624,9 +1624,15 @@ const SettingsSection: React.FC = () => {
   );
 
   const Row: React.FC<{ label: string; desc?: string; children: React.ReactNode }> = ({ label, desc, children }) => (
-    <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between", gap: "16px", padding: "14px 20px", borderBottom: "1px solid var(--border-subtle)" }}
-      style2={{ lastChild: { borderBottom: "none" } } as never}
-    >
+    <div style={{ 
+      display: "flex", 
+      alignItems: "center", 
+      justifyContent: "space-between", 
+      gap: "16px", 
+      padding: "14px 20px", 
+      borderBottom: "1px solid var(--border-subtle)" 
+    }}
+>
       <div style={{ minWidth: 0 }}>
         <div style={{ fontSize: "13px", fontWeight: 500, color: "var(--text-primary)" }}>{label}</div>
         {desc && <div style={{ fontSize: "11px", color: "var(--text-tertiary)", marginTop: "2px" }}>{desc}</div>}
